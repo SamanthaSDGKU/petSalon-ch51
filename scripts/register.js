@@ -16,14 +16,21 @@ let pet2={
     gender:"Male",
     breed:"Boxer"
 }
-
+let pet3={
+    name:"Scooby",
+    age:30,
+    gender:"Male",
+    breed:"Dane"
+}
 //push pets into the array
-pets.push(pet1,pet2);
+pets.push(pet1,pet2,pet3);
 
 function displayNames(){
     console.log("Total pets = " + pets.length);
-    console.log(pets[0].name);
-    console.log(pets[1].name);
+    for(let i=0;i<pets.length;i++){
+        // console.log(pets[i].name);
+        document.getElementById("petsNames").innerHTML+="<p> " +pets[i].name + "</p>";
+    }
 }
 
 displayNames();
