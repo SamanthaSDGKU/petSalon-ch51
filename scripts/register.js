@@ -1,36 +1,34 @@
-console.log("Register");
-
 let pets=[];//empty array
+//create the constructor
+//<------ paramenters (local) --->
+function Pet(name,age,gender,breed){
+    //property=paramenter
+    this.name=name;
+    this.age=age;
+    this.gender=gender;
+    this.breed=breed;
+}
+//get the inputs
+let inputName = document.getElementById("txtName");
+let inputAge = document.getElementById("txtAge");
+let inputGender = document.getElementById("txtGender");
+let inputBreed = document.getElementById("txtBreed");
 
-//object literal
-let pet1={
-    name:"Moka",
-    age:1,
-    gender:"Female",
-    breed:"Mixed"
+function register(){
+    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value);
+    //create an obj
+    let newPet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value);
+    pets.push(newPet)//push the newpet to the array
+    //display on the console the new pet  
+    console.log(newPet);
+    displayCards();
 }
 
-let pet2={
-    name:"Macchi",
-    age:2,
-    gender:"Male",
-    breed:"Boxer"
+function init(){
+    console.log("Init fn");
+    let scooby = new Pet("Scooby",60,"Male","Dane");
+    let scrappy= new Pet("Scrappy",50,"Male","Boxer");
+    pets.push(scooby,scrappy);
+    displayCards();
 }
-let pet3={
-    name:"Scooby",
-    age:30,
-    gender:"Male",
-    breed:"Dane"
-}
-//push pets into the array
-pets.push(pet1,pet2,pet3);
-
-function displayNames(){
-    console.log("Total pets = " + pets.length);
-    for(let i=0;i<pets.length;i++){
-        // console.log(pets[i].name);
-        document.getElementById("petsNames").innerHTML+="<p> " +pets[i].name + "</p>";
-    }
-}
-
-displayNames();
+window.onload=init;//it waits to render the HMTL
