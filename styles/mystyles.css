@@ -35,3 +35,7 @@ header img{
     padding: 10px;
     border: 1px solid black;
 }
+.highlight{
+    border-left:10px solid #ffcc00;
+    
+}
