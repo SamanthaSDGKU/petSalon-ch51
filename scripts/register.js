@@ -71,7 +71,18 @@ function search(){
         displayRows();
     }
 }
-
+function getServices(){
+    //get the list of services from the LS
+    let services = read();
+    let option;
+    //travel the array (for)
+    for(let i=0;i<services.length;i++){
+        let service = services[i];
+        //HTML for <option>
+        option+=`<option value="${service.description}">${service.description} </option>`;
+    }
+    $("#txtService").append(option);
+}
 function init(){
     console.log("Init fn");
     let scooby = new Pet("Scooby",60,"Male","Dane","grooming");
@@ -79,5 +90,6 @@ function init(){
     pets.push(scooby,scrappy);
     // displayCards();
     displayRows();
+    getServices();
 }
 window.onload=init;//it waits to render the HMTL
